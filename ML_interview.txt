@@ -1,0 +1,38 @@
+## Learning Theory
+
+1. Describe bias and variance with examples.
+-- # 🎯 Bias vs Variance (Interview Answer)
+
+Bias and variance are two types of errors in a machine learning model.
+
+---
+
+## 🔹 Bias
+Bias is the error due to wrong or overly simple assumptions in the model.
+
+➡️ High Bias → **Underfitting**  
+➡️ Model fails to capture the underlying pattern
+
+---
+
+## 🔹 Variance
+Variance is the error due to the model being too sensitive to the training data.
+
+➡️ High Variance → **Overfitting**  
+➡️ Model performs well on training data but poorly on unseen data
+
+---
+
+## 📌 Example
+- Using a linear model for nonlinear data → **High Bias ❌**
+- Using a very deep decision tree → **High Variance ❌**
+
+---
+
+## 🎯 Key Point
+✔️ Goal = Balance **Bias ⚖️ Variance** for good generalization
+
+---
+
+## ⚡ One-line Version
+> Bias causes underfitting due to simple assumptions, while variance causes overfitting due to sensitivity to data..
