@@ -1,0 +1,224 @@
+1. Describe bias and variance with examples.
+-- 🎯 Bias vs Variance (Interview Answer)
+
+Bias and variance are two types of errors in a machine learning model.
+
+🔹 Bias:
+Error due to overly simple assumptions.
+⬇️ High Bias → Underfitting ❌ (model misses patterns)
+
+🔹 Variance:
+Error due to sensitivity to training data.
+⬆️ High Variance → Overfitting ❌ (model memorizes data, poor on 
+new data)
+
+📌 Example:
+• Linear model on nonlinear data → High Bias ❌
+• Deep decision tree → High Variance ❌
+
+🎯 Key Point:
+⚖️ Balance Bias & Variance → Good Generalization ✅
+
+⚡ One-line:
+Bias = Underfitting ❌ | Variance = Overfitting ❌
+
+## ⚡ One-line Version
+> Bias causes underfitting due to simple assumptions, while variance
+ causes overfitting due to sensitivity to data..
+
+
+
+2. What is Empirical Risk Minimization?
+🎯 Empirical Risk Minimization (ERM) is a principle in machine 
+learning where we try to minimize the error on the training data.
+
+🔹 Definition:
+ERM means choosing a model that minimizes the average loss on the 
+given dataset.
+
+📌 Formula:
+Risk = (1/n) * Σ Loss(y, ŷ)
+
+Where:
+n = number of samples
+y = actual value
+ŷ = predicted value
+
+🔹 Intuition:
+Model learns by reducing error on known data (training data).
+
+📌 Example:
+• In Linear Regression → minimize Mean Squared Error (MSE)
+• In Classification → minimize log loss / cross-entropy
+
+⚠️ Problem:
+Minimizing only training error can lead to Overfitting ❌
+
+🎯 Key Point:
+ERM focuses on training data, but we need generalization for unseen data.
+
+⚡ One-line:
+ERM = minimizing training error to learn the best model.
+
+
+
+3. What is Union bound and Hoeffding's inequality?
+🎯 🔹Union Bound:
+
+Definition:
+Union Bound gives an upper bound on the probability of at 
+least one event happening.
+
+📌 Formula:
+P(A ∪ B ∪ C ...) ≤ P(A) + P(B) + P(C) + ...
+
+🔹 Intuition:
+Probability of multiple bad events ≤ sum of individual probabilities.
+
+📌 Example:
+If:
+P(A) = 0.2, P(B) = 0.3
+Then:
+P(A ∪ B) ≤ 0.5
+
+---
+
+🔹 Hoeffding’s Inequality:
+
+Definition:
+Hoeffding’s inequality gives a bound on how far the sample mean 
+is from the true mean.
+
+📌 Formula:
+P(|μ̂ - μ| ≥ ε) ≤ 2e^(-2nε²)
+
+Where:
+μ̂ = sample mean
+μ = true mean
+ε = error margin
+n = number of samples
+
+🔹 Intuition:
+As number of samples ↑, probability of large error ↓ exponentially 📉
+
+---
+
+🎯 Key Point:
+• Union Bound → combines probabilities of multiple events
+• Hoeffding → bounds error between sample mean & true mean
+
+⚡ One-line:
+Union Bound adds probabilities; Hoeffding bounds deviation 
+with high probability.
+
+
+
+4. Write the formulae for training error and generalization error. 
+Point out the differences.
+🎯 🔹 Training Error (Empirical Risk):
+
+📌 Formula:
+E_train = (1/n) * Σ Loss(y_i, ŷ_i)
+
+Where:
+n = number of training samples
+y_i = actual value
+ŷ_i = predicted value
+
+➡️ Measures error on training data
+
+---
+
+🔹 Generalization Error (True Risk):
+
+📌 Formula:
+E_gen = E[Loss(y, ŷ)]
+
+(or)
+
+E_out = ∫ Loss(y, ŷ) dP(x, y)
+
+➡️ Measures expected error on unseen (real-world) data
+
+---
+
+🔍 Differences:
+
+1. Data:
+• Training Error → Training dataset 📊
+• Generalization Error → Entire data distribution 🌍
+
+2. Computation:
+• Training Error → Easily computed ✅
+• Generalization Error → Not directly computable ❌
+
+3. Goal:
+• Training Error → Fit model to known data
+• Generalization Error → Perform well on unseen data
+
+4. Behavior:
+• Low training error + high generalization error → Overfitting ❌
+
+---
+🎯 Key Point:
+We minimize training error, but aim to reduce generalization error.
+
+⚡ One-line:
+Training error = error on seen data, Generalization error = error on 
+unseen data.
+
+
+
+
+5.What is the bias-variance trade-off theorem?
+🎯🔹 Statement:
+
+The expected prediction error of a model can be decomposed into 
+three parts:
+Bias², Variance, and Irreducible Error.
+
+📌 Formula:
+Total Error = Bias² + Variance + Irreducible Error
+
+---
+
+🔹 Terms:
+
+🔸 Bias²:
+Error due to wrong assumptions in the model  
+⬇️ High Bias → Underfitting ❌
+
+🔸 Variance:
+Error due to sensitivity to training data  
+⬆️ High Variance → Overfitting ❌
+
+🔸 Irreducible Error:
+Noise present in data (cannot be reduced) ⚠️
+
+---
+
+🔹 Intuition:
+
+• Simple model → High Bias, Low Variance  
+• Complex model → Low Bias, High Variance  
+
+⚖️ Trade-off:
+Reducing bias increases variance and vice versa
+
+---
+
+🔹 Key Insight:
+
+✔️ Goal = Find optimal balance between Bias & Variance  
+✔️ Minimizing both leads to best generalization
+
+---
+
+🎯 Key Point:
+Model complexity controls the bias-variance trade-off.
+
+---
+
+⚡ One-line:
+Total error = Bias² + Variance + Noise, and we balance bias
+ and variance for best performance.
